@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"  
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+    xmlns:p="http://www.springframework.org/schema/p"  
+    xmlns:context="http://www.springframework.org/schema/context"  
+    xsi:schemaLocation="http://www.springframework.org/schema/beans  
+http://www.springframework.org/schema/beans/spring-beans-3.0.xsd  
+http://www.springframework.org/schema/context  
+http://www.springframework.org/schema/context/spring-context-3.0.xsd">  
+
+<context:component-scan base-package="com.groupd.assignment4.controller"></context:component-scan>
+
+<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+<property name="prefix" value="/WEB-INF/jsp/"></property>
+<property name="suffix" value=".jsp"></property>
+</bean>
+
+<bean id="ds" class="org.springframework.jdbc.datasource.DriverManagerDataSource">  
+<property name="driverClassName" value="com.mysql.cj.jdbc.Driver"></property>  
+<property name="url" value="jdbc:mysql://localhost:3306/test_db"></property>  
+<property name="username" value="root"></property>  
+<property name="password" value="manpreet"></property>  
+</bean>  
+
+<bean id="jt" class="org.springframework.jdbc.core.JdbcTemplate">
+<property name="dataSource" ref="ds"></property>
+</bean>
+
+
+<bean id="borrowdao" class="com.groupd.assignment4.dao.BorrowDao">
+<property name="template" ref="jt"></property>
+</bean>
+
+<bean id="memberdao" class="com.groupd.assignment4.dao.MemberDao">
+<property name="template" ref="jt"></property>
+</bean>
+
+<bean id="publisherdao" class="com.groupd.assignment4.dao.PublisherDao">
+<property name="template" ref="jt"></property>
+</bean>
+
+<bean id="logindao" class="com.groupd.assignment4.dao.LoginDao">
+<property name="template" ref="jt"></property>
+</bean>
+
+<bean id="bookdao" class="com.groupd.assignment4.dao.BookDao">
+<property name="template" ref="jt"></property>
+</bean>
+
+</beans>
