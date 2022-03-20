@@ -10,9 +10,13 @@ import org.springframework.jdbc.core.RowMapper;
 import com.groupd.assignment4.beans.Login;
 
 /**
- * Date: 15.03.2022 Group D Member1: Manpreet kaur Member2: Manpreet Kaur
- * Member3: Bhumikaben Manubhai Patel Member4: Ashikkumar Nareshbhai Patel
- * Member5: Hardeep Kaur Chahal Model class for Book table
+ * Date: 15.03.2022 Group D 
+ * Member1: Manpreet kaur 
+ * Member2: Manpreet Kaur
+ * Member3: Bhumikaben Manubhai Patel 
+ * Member4: Ashikkumar Nareshbhai Patel
+ * Member5: Hardeep Kaur Chahal 
+ * DAO class for Login table
  */
 
 public class LoginDao {

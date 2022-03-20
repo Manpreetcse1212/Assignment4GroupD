@@ -10,9 +10,13 @@ import com.groupd.assignment4.beans.Login;
 import com.groupd.assignment4.dao.LoginDao;
 
 /**
- * Date: 15.03.2022 Group D Member1: Manpreet kaur Member2: Manpreet Kaur
- * Member3: Bhumikaben Manubhai Patel Member4: Ashikkumar Nareshbhai Patel
- * Member5: Hardeep Kaur Chahal This controller is used to hand post and get
+ * Date: 15.03.2022 Group D 
+ * Member1: Manpreet kaur 
+ * Member2: Manpreet Kaur
+ * Member3: Bhumikaben Manubhai Patel 
+ * Member4: Ashikkumar Nareshbhai Patel
+ * Member5: Hardeep Kaur Chahal 
+ * This controller is used to hand post and get
  * methods for registering and showing users
  */
 

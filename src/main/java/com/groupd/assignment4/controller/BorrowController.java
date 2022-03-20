@@ -12,17 +12,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.groupd.assignment4.beans.Borrow;
 import com.groupd.assignment4.dao.BorrowDao;
 
-
 /**
- * Date: 15.03.2022
- * Group D 
- * Member1: Manpreet kaur
+ * Date: 15.03.2022 Group D 
+ * Member1: Manpreet kaur 
  * Member2: Manpreet Kaur
- * Member3: Bhumikaben Manubhai Patel
+ * Member3: Bhumikaben Manubhai Patel 
  * Member4: Ashikkumar Nareshbhai Patel
- * Member5: Hardeep Kaur Chahal 
+ * Member5: Hardeep Kaur Chahal
  * 
- * This controller is used to handle post and get methods for creating, showing borrow details 
+ * This controller is used to handle post and get methods for creating, showing
+ * borrow details
  */
 
 @Controller
@@ -59,28 +58,10 @@ public class BorrowController {
 		return "viewborrow";
 	}
 
-	/*
-	 * It displays object data into form for the given id. The @PathVariable puts
-	 * URL data into variable.
-	 */
-	@RequestMapping(value = "/editborrow/{borrow.borrow_book_id}")
-	public String edit(@PathVariable int id, Model m) {
-		Borrow borrow = borrowdao.getBorrowById(id);
-		m.addAttribute("command", borrow);
-		return "borroweditform";
-	}
-
-	/* It updates model object. */
-	@RequestMapping(value = "/editsaveborrow", method = RequestMethod.POST)
-	public String editsave(@ModelAttribute("borrow") Borrow borrow) {
-		borrowdao.update(borrow);
-		return "redirect:/viewborrow";
-	}
-
 	/* It deletes record for the given id in URL and redirects to /viewborrow */
-	@RequestMapping(value = "/deleteborrow/{borrow.borrow_book_id}", method = RequestMethod.GET)
-	public String delete(@PathVariable int id) {
-		borrowdao.delete(id);
+	@RequestMapping(value = "/deleteborrow/{bookId}/{memberId}", method = RequestMethod.GET)
+	public String delete(@PathVariable int bookId, @PathVariable int memberId) {
+		borrowdao.delete(bookId, memberId);
 		return "redirect:/viewborrow";
 	}
 }

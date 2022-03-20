@@ -33,7 +33,8 @@ public int save(Book p){
 } 
 
 public int update(Book p){   // This method updates the books from book table
-    String sql="update book set Title='"+p.getTitle()+"', Author='"+p.getAuthor()+"',Available='"+p.getAvailable()+"' where id="+p.getBookId()+"";  
+    String sql="update book set Price = "+p.getPrice()+", Title='"+p.getTitle()+"', Author='"+p.getAuthor()+"',Available='"+p.getAvailable()+"' where Book_id="+p.getBookId()+"";  
+    System.out.println(sql);
     return template.update(sql);  
 } 
 
@@ -42,6 +43,7 @@ public int delete(int id){  // This method deletes the books from book table
     return template.update(sql);  
 }  
 
+@SuppressWarnings("deprecation")
 public Book getBookById(int id){  //This method displays the books from book table
     String sql="select * from book where Book_id=?";  
     return template.queryForObject(sql, new Object[]{id},new BeanPropertyRowMapper<Book>(Book.class));  
@@ -52,11 +54,11 @@ public List<Book> getBooks(){  //This method displays the books from book table
         public Book mapRow(ResultSet rs, int row) throws SQLException {  
             Book e=new Book();  
             e.setBookId(rs.getInt(1));  
-            e.setTitle(rs.getString(2)); 
-            e.setPubId(rs.getInt(3));
-            e.setAuthor(rs.getString(4));  
-            e.setPrice(rs.getDouble(5));
-            e.setAvailable(rs.getString(6));
+            e.setAuthor(rs.getString(2));
+            e.setTitle(rs.getString(3)); 
+            e.setPrice(rs.getDouble(4));
+            e.setAvailable(rs.getString(5));
+            e.setPubId(rs.getInt(6));
             return e;  
         }  
     });  

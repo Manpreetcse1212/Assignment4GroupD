@@ -46,7 +46,7 @@ public class PublisherController {
 	 * request is GET
 	 */
 	@RequestMapping(value = "/savepublisher", method = RequestMethod.POST)
-	public String save(@ModelAttribute("borrow") Publisher publisher) {
+	public String save(@ModelAttribute("pub") Publisher publisher) {
 		publisherdao.save(publisher);
 		return "redirect:/viewpublisher";// will redirect to viewpublisher request mapping
 	}

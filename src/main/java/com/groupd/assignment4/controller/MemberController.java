@@ -13,8 +13,11 @@ import com.groupd.assignment4.beans.Member;
 import com.groupd.assignment4.dao.MemberDao;
 
 /**
- * Date: 15.03.2022 Group D Member1: Manpreet kaur Member2: Manpreet Kaur
- * Member3: Bhumikaben Manubhai Patel Member4: Ashikkumar Nareshbhai Patel
+ * Date: 15.03.2022 Group D 
+ * Member1: Manpreet kaur 
+ * Member2: Manpreet Kaur
+ * Member3: Bhumikaben Manubhai Patel 
+ * Member4: Ashikkumar Nareshbhai Patel
  * Member5: Hardeep Kaur Chahal
  * 
  * This controller is used to handle post and get methods for creating, updating

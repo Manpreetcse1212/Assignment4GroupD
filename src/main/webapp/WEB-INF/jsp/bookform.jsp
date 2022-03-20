@@ -1,56 +1,44 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<%@page import="java.util.*"%>
-<%@page import="com.groupd.assignment4.beans.Book"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Add book</title>
 </head>
-<body style="background-color:pink !important">
+<body style="background-color: pink !important">
 	<h2>Add Book</h2>
-	<form action="BookServlet" method="post">
-		<input type="hidden" name="action" value="insert" /> Title : <input
-			type="text" name="title" /> <br>Author : <input type="text"
-			name="author" /> <br>Availability : <input type="text"
-			name="available" /> <br>Price : <input type="text" name="price" />
-		<br> Publisher ID : <input type="text" name="pub-id" /> <br>
-		<input type="submit" value="insert" />
-	</form>
-	<br>
-	<br>
-	<table>
-		<thead>
+
+	<form:form method="post" action="savebook">
+		<table>
 			<tr>
-				<th>ID</th>
-				<th>Title</th>
-				<th>Author</th>
-				<th>Available</th>
-				<th>Price</th>
-				<th>Publisher ID</th>
+				<td>title :</td>
+				<td><form:input path="title" /></td>
 			</tr>
-		</thead>
-		<tbody>
-			<%
-			ArrayList<Book> book = (ArrayList<Book>) session.getAttribute("book");
-			if (book != null) {
-				for (int i = 0; i < book.size(); i++) {
-					Book obj = book.get(i);
-			%>
 			<tr>
-				<td><%=obj.getBookId()%></td>
-				<td><%=obj.getTitle()%></td>
-				<td><%=obj.getAuthor()%></td>
-				<td><%=obj.getAvailable()%></td>
-				<td><%=obj.getPrice()%></td>
-				<td><%=obj.getPubId()%></td>
+				<td>author :</td>
+				<td><form:input path="author" /></td>
 			</tr>
-			<%
-			}
-			}
-			%>
-		</tbody>
-	</table>
+			<tr>
+				<td>available :</td>
+				<td><form:input path="available" /></td>
+			</tr>
+			<tr>
+				<td>price :</td>
+				<td><form:input path="price" /></td>
+			</tr>
+			<tr>
+				<td>pubId :</td>
+				<td><form:input path="pubId" /></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><input type="submit" value="Save" /></td>
+			</tr>
+		</table>
+	</form:form>
 </body>
 </html>

@@ -1,14 +1,16 @@
 package com.groupd.assignment4.beans;
+
 import java.sql.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 /**
- * Date: 15.03.2022
- * Group D 
- * Member1: Manpreet kaur
+ * Date: 15.03.2022 Group D 
+ * Member1: Manpreet kaur 
  * Member2: Manpreet Kaur
- * Member3: Bhumikaben Manubhai Patel
+ * Member3: Bhumikaben Manubhai Patel 
  * Member4: Ashikkumar Nareshbhai Patel
- * Member5: Hardeep Kaur Chahal 
+ * Member5: Hardeep Kaur Chahal
  * 
  * bean class for borrow table
  */
@@ -17,11 +19,38 @@ public class Borrow {
 
 	private int bookId;
 	private int memberId;
-	private Date issueDate;
-	private Date returnDate;
-	private Date dueDate;
+	@DateTimeFormat(pattern="yyyy-MM-dd")
+	private String issueDate;
+	@DateTimeFormat(pattern="yyyy-MM-dd")
+	private String returnDate;
+	@DateTimeFormat(pattern="yyyy-MM-dd")
+	private String dueDate;
 	private String bookName;
 	private String memberName;
+
+	public String getIssueDate() {
+		return issueDate;
+	}
+
+	public void setIssueDate(String issueDate) {
+		this.issueDate = issueDate;
+	}
+
+	public String getReturnDate() {
+		return returnDate;
+	}
+
+	public void setReturnDate(String returnDate) {
+		this.returnDate = returnDate;
+	}
+
+	public String getDueDate() {
+		return dueDate;
+	}
+
+	public void setDueDate(String dueDate) {
+		this.dueDate = dueDate;
+	}
 
 	public int getBookId() {
 		return bookId;
@@ -37,30 +66,6 @@ public class Borrow {
 
 	public void setMemberId(int memberId) {
 		this.memberId = memberId;
-	}
-
-	public Date getIssueDate() {
-		return issueDate;
-	}
-
-	public void setIssueDate(Date issueDate) {
-		this.issueDate = issueDate;
-	}
-
-	public Date getReturnDate() {
-		return returnDate;
-	}
-
-	public void setReturnDate(Date returnDate) {
-		this.returnDate = returnDate;
-	}
-
-	public Date getDueDate() {
-		return dueDate;
-	}
-
-	public void setDueDate(Date dueDate) {
-		this.dueDate = dueDate;
 	}
 
 	public String getBookName() {
