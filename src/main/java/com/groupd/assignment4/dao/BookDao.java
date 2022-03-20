@@ -15,7 +15,7 @@ import com.groupd.assignment4.beans.Book;
  * Member3: Bhumikaben Manubhai Patel
  * Member4: Ashikkumar Nareshbhai Patel
  * Member5: Hardeep Kaur Chahal 
- * Model class for Book table
+ * This class is having methods to issue books, show books, update books and delete books
  */
 
 public class BookDao {
@@ -25,24 +25,29 @@ JdbcTemplate template;
 public void setTemplate(JdbcTemplate template) {  
     this.template = template;  
 }  
+
 public int save(Book p){  
-	
+	//This method is inserting the records of issuing books to the book table
     String sql="insert into book (Title, Author, Available, Price, Pub_id)values('"+p.getTitle()+"','"+p.getAuthor()+"','"+p.getAvailable()+"',"+p.getPrice()+","+p.getPubId()+")";  
     return template.update(sql);  
-}  
-public int update(Book p){  
-    String sql="update book set Title='"+p.getTitle()+"', Author="+p.getAuthor()+",Available='"+p.getAvailable()+"' where id="+p.getBookId()+"";  
+} 
+
+public int update(Book p){   // This method updates the books from book table
+    String sql="update book set Title='"+p.getTitle()+"', Author='"+p.getAuthor()+"',Available='"+p.getAvailable()+"' where id="+p.getBookId()+"";  
     return template.update(sql);  
-}  
-public int delete(int id){  
+} 
+
+public int delete(int id){  // This method deletes the books from book table
     String sql="delete from book where Book_id="+id+"";  
     return template.update(sql);  
 }  
-public Book getBookById(int id){  
+
+public Book getBookById(int id){  //This method displays the books from book table
     String sql="select * from book where Book_id=?";  
     return template.queryForObject(sql, new Object[]{id},new BeanPropertyRowMapper<Book>(Book.class));  
-}  
-public List<Book> getBooks(){  
+} 
+
+public List<Book> getBooks(){  //This method displays the books from book table
     return template.query("select * from book",new RowMapper<Book>(){  
         public Book mapRow(ResultSet rs, int row) throws SQLException {  
             Book e=new Book();  
@@ -50,6 +55,8 @@ public List<Book> getBooks(){
             e.setTitle(rs.getString(2)); 
             e.setPubId(rs.getInt(3));
             e.setAuthor(rs.getString(4));  
+            e.setPrice(rs.getDouble(5));
+            e.setAvailable(rs.getString(6));
             return e;  
         }  
     });  

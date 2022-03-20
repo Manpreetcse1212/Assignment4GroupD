@@ -2,7 +2,7 @@ package com.groupd.assignment4.beans;
 
 
 /**
- * Date: 23.02.2022
+ * Date: 15.03.2022
  * Group D 
  * Member1: Manpreet kaur
  * Member2: Manpreet Kaur
@@ -10,7 +10,7 @@ package com.groupd.assignment4.beans;
  * Member4: Ashikkumar Nareshbhai Patel
  * Member5: Hardeep Kaur Chahal 
  * 
- * Model class for publisher table
+ * bean class for publisher table
  */
 public class Publisher {
 

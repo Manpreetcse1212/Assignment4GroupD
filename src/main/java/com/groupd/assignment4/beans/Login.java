@@ -8,7 +8,7 @@ package com.groupd.assignment4.beans;
  * Member3: Bhumikaben Manubhai Patel
  * Member4: Ashikkumar Nareshbhai Patel
  * Member5: Hardeep Kaur Chahal 
- * Model class for Book table
+ * bean class for Book table
  */
 
 public class Login {

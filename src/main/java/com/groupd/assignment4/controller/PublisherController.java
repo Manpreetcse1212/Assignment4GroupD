@@ -22,7 +22,7 @@ import com.groupd.assignment4.dao.PublisherDao;
  * Member4: Ashikkumar Nareshbhai Patel
  * Member5: Hardeep Kaur Chahal 
  * 
- * Model class for borrow table
+ *This controller is used to handle post and get methods for creating, updating publisher
  */
 
 @Controller
@@ -45,13 +45,13 @@ public class PublisherController {
 	 * model object. You need to mention RequestMethod.POST method because default
 	 * request is GET
 	 */
-	@RequestMapping(value = "/save", method = RequestMethod.POST)
+	@RequestMapping(value = "/savepublisher", method = RequestMethod.POST)
 	public String save(@ModelAttribute("borrow") Publisher publisher) {
 		publisherdao.save(publisher);
 		return "redirect:/viewpublisher";// will redirect to viewpublisher request mapping
 	}
 
-	/* It provides list of employees in model object */
+	/* It provides list of publisher in model object */
 	@RequestMapping("/viewpublisher")
 	public String viewborrow(Model m) {
 		List<Publisher> list = publisherdao.getPublisher();
@@ -71,7 +71,7 @@ public class PublisherController {
 	}
 
 	/* It updates model object. */
-	@RequestMapping(value = "/editsave", method = RequestMethod.POST)
+	@RequestMapping(value = "/editsavepublisher", method = RequestMethod.POST)
 	public String editsave(@ModelAttribute("publisher") Publisher publisher) {
 		publisherdao.update(publisher);
 		return "redirect:/viewpublisher";

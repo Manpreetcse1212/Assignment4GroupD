@@ -10,7 +10,7 @@ import java.sql.Date;
  * Member4: Ashikkumar Nareshbhai Patel
  * Member5: Hardeep Kaur Chahal 
  * 
- * Model class for borrow table
+ * bean class for borrow table
  */
 
 public class Borrow {

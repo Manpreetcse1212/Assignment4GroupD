@@ -1,19 +1,22 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>  
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>  
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> 
+<%@ page isELIgnored="false"%>
 
-	<h1>Employees List</h1>
+	<h1>Member List</h1>
 	<table border="2" width="70%" cellpadding="2">
-	<tr><th>Id</th><th>Name</th><th>Salary</th><th>Designation</th><th>Edit</th><th>Delete</th></tr>
-    <c:forEach var="emp" items="${list}"> 
+	<tr><th>Name</th><th>Address</th><th>Type</th><th>Join Date</th><th>Expiry Date</th><th>Id</th></tr>
+    <c:forEach var="member" items="${list}"> 
     <tr>
-    <td>${emp.id}</td>
-    <td>${emp.name}</td>
-    <td>${emp.salary}</td>
-    <td>${emp.designation}</td>
-    <td><a href="editemp/${emp.id}">Edit</a></td>
-    <td><a href="deleteemp/${emp.id}">Delete</a></td>
+    <td>${member.name}</td>
+    <td>${member.address}</td>
+    <td>${member.memberType}</td>
+    <td>${member.join_date}</td>
+    <td>${member.expire}</td>
+    <td>${member.member_id}</td>
+    <td><a href="editmember/${member.member_id}">Edit</a></td>
+    <td><a href="deletemember/${member.member_id}">Delete</a></td>
     </tr>
     </c:forEach>
     </table>
     <br/>
-    <a href="empform">Add New Employee</a>
+    <a href="memberform">Add New Member</a>

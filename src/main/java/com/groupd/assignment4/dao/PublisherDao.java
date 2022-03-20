@@ -23,7 +23,7 @@ import com.groupd.assignment4.beans.Publisher;
  * Member4: Ashikkumar Nareshbhai Patel
  * Member5: Hardeep Kaur Chahal 
  * 
- * This class is having methods for addBorrow and showBorrow to add to the borrowlist and to display the borrow list
+ * This class has methods for adding, updating and show publisher
  */
 public class PublisherDao {
 
@@ -32,12 +32,12 @@ JdbcTemplate template;
 public void setTemplate(JdbcTemplate template) {  
     this.template = template;  
 }  
-public int save(Publisher p){  
+public int save(Publisher p){  //This method is used to add Publisher in publisher table
 	
     String sql="insert into publisher (Pub_id, Address, Name)values("+p.getId()+",'"+p.getAddress()+"','"+p.getName()+"')";  
     return template.update(sql);  
 }  
-public int update(Publisher p){  
+public int update(Publisher p){  //This method is used to update publisher in the publisher table
     String sql="update publisher set Address='"+p.getAddress()+"', Name='"+p.getName()+"' where Pub_id="+p.getId()+"";  
     return template.update(sql);  
 }  
@@ -45,11 +45,11 @@ public int delete(int id){
     String sql="delete from publisher where Pub_id="+id+"";  
     return template.update(sql);  
 }  
-public Publisher getPublisherById(int id){  
+public Publisher getPublisherById(int id){  //This method is used to display the publishers from publisher table
     String sql="select * from publisher where Pub_id=?";  
     return template.queryForObject(sql, new Object[]{id},new BeanPropertyRowMapper<Publisher>(Publisher.class));  
 }  
-public List<Publisher> getPublisher(){  
+public List<Publisher> getPublisher(){  //This method is used to display the publishers from publisher table
     return template.query("select * from publisher",new RowMapper<Publisher>(){  
         public Publisher mapRow(ResultSet rs, int row) throws SQLException {  
         	Publisher e=new Publisher();  

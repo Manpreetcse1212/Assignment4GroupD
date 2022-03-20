@@ -22,7 +22,7 @@ import com.groupd.assignment4.dao.BorrowDao;
  * Member4: Ashikkumar Nareshbhai Patel
  * Member5: Hardeep Kaur Chahal 
  * 
- * Model class for borrow table
+ * This controller is used to handle post and get methods for creating, showing borrow details 
  */
 
 @Controller
@@ -45,13 +45,13 @@ public class BorrowController {
 	 * model object. You need to mention RequestMethod.POST method because default
 	 * request is GET
 	 */
-	@RequestMapping(value = "/save", method = RequestMethod.POST)
+	@RequestMapping(value = "/saveborrow", method = RequestMethod.POST)
 	public String save(@ModelAttribute("borrow") Borrow borrow) {
 		borrowdao.save(borrow);
 		return "redirect:/viewborrow";// will redirect to viewborrow request mapping
 	}
 
-	/* It provides list of employees in model object */
+	/* It provides list of borrow in model object */
 	@RequestMapping("/viewborrow")
 	public String viewborrow(Model m) {
 		List<Borrow> list = borrowdao.getBorrow();
@@ -71,13 +71,13 @@ public class BorrowController {
 	}
 
 	/* It updates model object. */
-	@RequestMapping(value = "/editsave", method = RequestMethod.POST)
+	@RequestMapping(value = "/editsaveborrow", method = RequestMethod.POST)
 	public String editsave(@ModelAttribute("borrow") Borrow borrow) {
 		borrowdao.update(borrow);
 		return "redirect:/viewborrow";
 	}
 
-	/* It deletes record for the given id in URL and redirects to /viewemp */
+	/* It deletes record for the given id in URL and redirects to /viewborrow */
 	@RequestMapping(value = "/deleteborrow/{borrow.borrow_book_id}", method = RequestMethod.GET)
 	public String delete(@PathVariable int id) {
 		borrowdao.delete(id);

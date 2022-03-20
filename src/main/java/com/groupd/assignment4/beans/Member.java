@@ -2,16 +2,17 @@ package com.groupd.assignment4.beans;
 
 import java.sql.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 /**
- * Date: 15.03.2022
+ * Date: 15.03.2022 
  * Group D 
- * Member1: Manpreet kaur
+ * Member1: Manpreet kaur 
  * Member2: Manpreet Kaur
- * Member3: Bhumikaben Manubhai Patel
- * Member4: Ashikkumar Nareshbhai Patel
- * Member5: Hardeep Kaur Chahal 
+ * Member3: Bhumikaben Manubhai Patel Member4: Ashikkumar Nareshbhai Patel
+ * Member5: Hardeep Kaur Chahal
  * 
- * Model class for member table
+ * bean class for member table
  */
 
 public class Member {
@@ -19,9 +20,21 @@ public class Member {
 	private int member_id;
 	private String name;
 	private String address;
-	private String type;
-	private Date join_date;
-	private Date expire;
+	private String memberType;
+
+	@DateTimeFormat(pattern="yyyy-MM-dd")
+	private String join_date;
+
+	@DateTimeFormat(pattern="yyyy-MM-dd")
+	private String expire;
+
+	public String getMemberType() {
+		return memberType;
+	}
+
+	public void setMemberType(String memberType) {
+		this.memberType = memberType;
+	}
 
 	public int getMember_id() {
 		return member_id;
@@ -47,27 +60,19 @@ public class Member {
 		this.address = address;
 	}
 
-	public String getType() {
-		return type;
-	}
-
-	public void setType(String type) {
-		this.type = type;
-	}
-
-	public Date getJoin_date() {
+	public String getJoin_date() {
 		return join_date;
 	}
 
-	public void setJoin_date(Date join_date) {
+	public void setJoin_date(String join_date) {
 		this.join_date = join_date;
 	}
 
-	public Date getExpire() {
+	public String getExpire() {
 		return expire;
 	}
 
-	public void setExpire(Date expire) {
+	public void setExpire(String expire) {
 		this.expire = expire;
 	}
 

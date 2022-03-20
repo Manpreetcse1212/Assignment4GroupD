@@ -9,8 +9,6 @@
 <body style="background-color:pink !important">
 	<h1>LIBRARY</h1>
 
-	<a href="viewlogin">Login into your account</a>
-	<br>
 	<a href="viewmember">Members Section</a>
 	<br>
 	<a href="viewpublisher">Publisher Section</a>
