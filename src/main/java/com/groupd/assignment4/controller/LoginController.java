@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.groupd.assignment4.beans.Login;
-import com.groupd.assignment4.dao.LoginDao;
+import com.groupd.assignment4.dao.LoginDaoD;
 
 /**
  * Date: 15.03.2022 Group D 
@@ -24,15 +24,19 @@ import com.groupd.assignment4.dao.LoginDao;
 public class LoginController {
 
 	@Autowired
-	LoginDao logindao;// will inject dao from xml file
+	LoginDaoD logindao;// will inject dao from xml file
 
+	@RequestMapping("/")
+	public String loginPage() {
+		return "viewlogin";
+	}
 	@RequestMapping(value = "/loginUser", method = RequestMethod.POST)
 	public String login(@RequestParam(name = "username") String username,
 			@RequestParam(name = "password") String password) {
 		Login login = new Login();
 		login.setUserName(username);
 		login.setPassword(password);
-		if (logindao.check(login)) {
+		if (logindao.user_exists(login)) {
 			return "index";// will redirect to view login request mapping
 		} else {
 			return "redirect:/";
@@ -45,7 +49,7 @@ public class LoginController {
 		Login login = new Login();
 		login.setUserName(username);
 		login.setPassword(password);
-		logindao.saveUser(login);
+		logindao.AddUser(login);
 		return "redirect:/";
 	}
 

@@ -18,7 +18,7 @@ import com.groupd.assignment4.beans.Book;
  * This class is having methods to issue books, show books, update books and delete books
  */
 
-public class BookDao {
+public class BookDaoD {
 	
 JdbcTemplate template;  
   
@@ -26,19 +26,19 @@ public void setTemplate(JdbcTemplate template) {
     this.template = template;  
 }  
 
-public int save(Book p){  
+public int IssueBook(Book p){  
 	//This method is inserting the records of issuing books to the book table
     String sql="insert into book (Title, Author, Available, Price, Pub_id)values('"+p.getTitle()+"','"+p.getAuthor()+"','"+p.getAvailable()+"',"+p.getPrice()+","+p.getPubId()+")";  
     return template.update(sql);  
 } 
 
-public int update(Book p){   // This method updates the books from book table
+public int UpdateBook(Book p){   // This method updates the books from book table
     String sql="update book set Price = "+p.getPrice()+", Title='"+p.getTitle()+"', Author='"+p.getAuthor()+"',Available='"+p.getAvailable()+"' where Book_id="+p.getBookId()+"";  
     System.out.println(sql);
     return template.update(sql);  
 } 
 
-public int delete(int id){  // This method deletes the books from book table
+public int DeleteBook(int id){  // This method deletes the books from book table
     String sql="delete from book where Book_id="+id+"";  
     return template.update(sql);  
 }  

@@ -21,7 +21,7 @@ import com.groupd.assignment4.beans.Member;
  * the database
  */
 
-public class MemberDao {
+public class MemberDaoD {
 
 	JdbcTemplate template;
 
@@ -29,7 +29,7 @@ public class MemberDao {
 		this.template = template;
 	}
 
-	public int save(Member p) { // This method is used to register using member table
+	public int RegisterMember(Member p) { // This method is used to register using member table
 		String sql = "insert into member (Name, Address, Memb_type, Memb_date, Expiry_date,Memb_id)values('"
 				+ p.getName() + "','" + p.getAddress() + "','" + p.getMemberType() + "',CAST('"
 				+ java.sql.Date.valueOf(p.getJoin_date()) + "' AS DATE),CAST('" + java.sql.Date.valueOf(p.getExpire())
@@ -37,7 +37,7 @@ public class MemberDao {
 		return template.update(sql);
 	}
 
-	public int update(Member p) { // This method is used to update the members in the member table
+	public int updateMember(Member p) { // This method is used to update the members in the member table
 		System.out.println(java.sql.Date.valueOf(p.getJoin_date()));
 		String sql = "update member set Memb_date=CAST('" + java.sql.Date.valueOf(p.getJoin_date())
 				+ "' AS DATE), Expiry_date=CAST('" + java.sql.Date.valueOf(p.getExpire()) + "' AS DATE), Name='"

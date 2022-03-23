@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.groupd.assignment4.beans.Borrow;
-import com.groupd.assignment4.dao.BorrowDao;
+import com.groupd.assignment4.dao.BorrowDaoD;
 
 /**
  * Date: 15.03.2022 Group D 
@@ -27,7 +27,7 @@ import com.groupd.assignment4.dao.BorrowDao;
 @Controller
 public class BorrowController {
 	@Autowired
-	BorrowDao borrowdao;// will inject dao from xml file
+	BorrowDaoD borrowdao;// will inject dao from xml file
 
 	/*
 	 * It displays a form to input data, here "command" is a reserved request

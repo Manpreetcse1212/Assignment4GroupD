@@ -19,7 +19,7 @@ import com.groupd.assignment4.beans.Login;
  * DAO class for Login table
  */
 
-public class LoginDao {
+public class LoginDaoD {
 
 	JdbcTemplate template;
 
@@ -28,7 +28,7 @@ public class LoginDao {
 	}
 
 //	login, register
-	public boolean check(Login login) {
+	public boolean user_exists(Login login) {
 		String sql = "select * from login where username=? and password=?";
 
 		List<Login> users = template.query("select username, password from login where username='" + login.getUserName()
@@ -41,20 +41,16 @@ public class LoginDao {
 					}
 				});
 		if (users.size() > 0) {
-			if (login.getUserName().equals(users.get(0).getUserName())
-					&& login.getPassword().equals(users.get(0).getPassword())) {
 				return true;
-			} else {
-				return false;
-			}
-		} else {
+		}
+		else {
 			return false;
 		}
 
 	}
 
 //	for Adding users
-	public int saveUser(Login login) {
+	public int AddUser(Login login) {
 		String sql = "insert into login (username, password) values('" + login.getUserName() + "','"
 				+ login.getPassword() + "')";
 		return template.update(sql);

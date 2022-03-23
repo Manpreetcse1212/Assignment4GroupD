@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.groupd.assignment4.beans.Book;
-import com.groupd.assignment4.dao.BookDao;
+import com.groupd.assignment4.dao.BookDaoD;
 /**
  * Date: 15.03.2022
  * Group D 
@@ -25,7 +25,7 @@ import com.groupd.assignment4.dao.BookDao;
 @Controller
 public class BookController {
 	@Autowired
-	BookDao bookdao;// will inject dao from xml file
+	BookDaoD bookdao;// will inject dao from xml file
 
 	/*
 	 * It displays a form to input data, here "command" is a reserved request
@@ -44,7 +44,7 @@ public class BookController {
 	 */
 	@RequestMapping(value = "/savebook", method = RequestMethod.POST)
 	public String save(@ModelAttribute("book") Book book) {
-		bookdao.save(book);
+		bookdao.IssueBook(book);
 		return "redirect:/viewbook";// will redirect to viewbook request mapping
 	}
 
@@ -70,14 +70,14 @@ public class BookController {
 	/* It updates model object. */
 	@RequestMapping(value = "/editsavebook", method = RequestMethod.POST)
 	public String editsave(@ModelAttribute("book") Book book) {
-		bookdao.update(book);
+		bookdao.UpdateBook(book);
 		return "redirect:/viewbook";
 	}
 
 	/* It deletes record for the given id in URL and redirects to /viewbook */
 	@RequestMapping(value = "/deletebook/{id}", method = RequestMethod.GET)
 	public String delete(@PathVariable int id) {
-		bookdao.delete(id);
+		bookdao.DeleteBook(id);
 		return "redirect:/viewbook";
 	}
 }

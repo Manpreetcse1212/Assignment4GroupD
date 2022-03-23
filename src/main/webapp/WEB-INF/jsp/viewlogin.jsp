@@ -1,4 +1,3 @@
-
 <h1>Create</h1>
 <form method="POST" action="saveUser">
 	<table>

@@ -27,23 +27,23 @@ http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 </bean>
 
 
-<bean id="borrowdao" class="com.groupd.assignment4.dao.BorrowDao">
+<bean id="borrowdao" class="com.groupd.assignment4.dao.BorrowDaoD">
 <property name="template" ref="jt"></property>
 </bean>
 
-<bean id="memberdao" class="com.groupd.assignment4.dao.MemberDao">
+<bean id="memberdao" class="com.groupd.assignment4.dao.MemberDaoD">
 <property name="template" ref="jt"></property>
 </bean>
 
-<bean id="publisherdao" class="com.groupd.assignment4.dao.PublisherDao">
+<bean id="publisherdao" class="com.groupd.assignment4.dao.PublisherDaoD">
 <property name="template" ref="jt"></property>
 </bean>
 
-<bean id="logindao" class="com.groupd.assignment4.dao.LoginDao">
+<bean id="logindao" class="com.groupd.assignment4.dao.LoginDaoD">
 <property name="template" ref="jt"></property>
 </bean>
 
-<bean id="bookdao" class="com.groupd.assignment4.dao.BookDao">
+<bean id="bookdao" class="com.groupd.assignment4.dao.BookDaoD">
 <property name="template" ref="jt"></property>
 </bean>
 

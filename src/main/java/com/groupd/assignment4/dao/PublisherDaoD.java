@@ -24,7 +24,7 @@ import com.groupd.assignment4.beans.Publisher;
  * 
  * This class has methods for adding, updating and show publisher
  */
-public class PublisherDao {
+public class PublisherDaoD {
 
 	JdbcTemplate template;
 
@@ -32,13 +32,13 @@ public class PublisherDao {
 		this.template = template;
 	}
 
-	public int save(Publisher p) { // This method is used to add Publisher in publisher table
+	public int AddPublisher(Publisher p) { // This method is used to add Publisher in publisher table
 
 		String sql = "insert into publisher (Address, Name)values('" + p.getAddress() + "','" + p.getName() + "')";
 		return template.update(sql);
 	}
 
-	public int update(Publisher p) { // This method is used to update publisher in the publisher table
+	public int UpdatePublisher(Publisher p) { // This method is used to update publisher in the publisher table
 		String sql = "update publisher set Address='" + p.getAddress() + "', Name='" + p.getName() + "' where Pub_id="
 				+ p.getId() + "";
 		System.out.println(sql);

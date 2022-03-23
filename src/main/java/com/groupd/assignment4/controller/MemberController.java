@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.groupd.assignment4.beans.Member;
-import com.groupd.assignment4.dao.MemberDao;
+import com.groupd.assignment4.dao.MemberDaoD;
 
 /**
  * Date: 15.03.2022 Group D 
@@ -28,7 +28,7 @@ import com.groupd.assignment4.dao.MemberDao;
 public class MemberController {
 
 	@Autowired
-	MemberDao memberdao;// will inject dao from xml file
+	MemberDaoD memberdao;// will inject dao from xml file
 
 	/*
 	 * It displays a form to input data, here "command" is a reserved request
@@ -47,7 +47,7 @@ public class MemberController {
 	 */
 	@RequestMapping(value = "/savemember", method = RequestMethod.POST)
 	public String save(@ModelAttribute("member") Member member) {
-		memberdao.save(member);
+		memberdao.RegisterMember(member);
 		return "redirect:/viewmember";// will redirect to viewmember request mapping
 	}
 
@@ -74,7 +74,7 @@ public class MemberController {
 	/* It updates model object. */
 	@RequestMapping(value = "/editsavemember", method = RequestMethod.POST)
 	public String editsave(@ModelAttribute("member") Member member) {
-		memberdao.update(member);
+		memberdao.updateMember(member);
 		return "redirect:/viewmember";
 	}
 

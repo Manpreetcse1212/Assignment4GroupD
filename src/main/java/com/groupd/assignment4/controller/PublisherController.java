@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.groupd.assignment4.beans.Publisher;
-import com.groupd.assignment4.dao.PublisherDao;
+import com.groupd.assignment4.dao.PublisherDaoD;
 
 
 /**
@@ -28,7 +28,7 @@ import com.groupd.assignment4.dao.PublisherDao;
 @Controller
 public class PublisherController {
 	@Autowired
-	PublisherDao publisherdao;// will inject dao from xml file
+	PublisherDaoD publisherdao;// will inject dao from xml file
 
 	/*
 	 * It displays a form to input data, here "command" is a reserved request
@@ -47,7 +47,7 @@ public class PublisherController {
 	 */
 	@RequestMapping(value = "/savepublisher", method = RequestMethod.POST)
 	public String save(@ModelAttribute("pub") Publisher publisher) {
-		publisherdao.save(publisher);
+		publisherdao.AddPublisher(publisher);
 		return "redirect:/viewpublisher";// will redirect to viewpublisher request mapping
 	}
 
@@ -73,7 +73,7 @@ public class PublisherController {
 	/* It updates model object. */
 	@RequestMapping(value = "/editsavepublisher", method = RequestMethod.POST)
 	public String editsave(@ModelAttribute("publisher") Publisher publisher) {
-		publisherdao.update(publisher);
+		publisherdao.UpdatePublisher(publisher);
 		return "redirect:/viewpublisher";
 	}
 

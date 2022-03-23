@@ -26,7 +26,7 @@ import com.groupd.assignment4.beans.Borrow;
  * This class is having methods to add to the borrowlist and to display the
  * borrow list
  */
-public class BorrowDao {
+public class BorrowDaoD {
 
 	JdbcTemplate template;
 
